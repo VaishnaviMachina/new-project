@@ -1,0 +1,60 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+int
+main ()
+{
+  int m, n, p, q;
+  printf ("enter order of mat a\n");
+  scanf ("%d %d", &m, &n);
+  printf ("enter order of mat b\n");
+  scanf ("%d %d", &p, &q);
+  if (n != p)
+    {
+      printf ("multiplication cannot be done\n");
+      exit (0);
+    }
+  else
+    {
+      int a[20][20], b[20][20], c[20][20];
+      printf ("enter a\n");
+      int i, j;
+      for (i = 0; i < m; i++)
+	{
+	  for (j = 0; j < n; j++)
+	    {
+	      scanf ("%d", &a[i][j]);
+	    }
+	  //printf("\n");
+	}
+
+      printf ("enter b\n");
+
+      for (i = 0; i < p; i++)
+	{
+	  for (j = 0; j < q; j++)
+	    {
+	      scanf ("%d", &b[i][j]);
+	    }
+	  //printf("\n");
+	}
+
+      int k, sum = 0;
+      printf ("product of a&b is\n");
+      for (i = 0; i < m; i++)
+	{
+	  for (j = 0; j < q; j++)
+	    {
+	      for (k = 0; k < n; k++)
+		{
+		  sum = sum + a[i][k] * b[k][j];
+		}
+	      c[i][j] = sum;
+	      printf ("%d ", c[i][j]);
+	      sum = 0;
+	    }
+	  printf ("\n");
+	}
+    }
+  return 0;
+}
