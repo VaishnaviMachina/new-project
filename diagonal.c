@@ -30,8 +30,11 @@ main ()
 printf ("\ndiagonal elements of array a\n");
 for (i = 0; i < m; i++)
     {
-      printf("%d ",a[m+i-1][i]);
-      
+       for (j = 0; j < m; j++)
+	{
+	  if((i+j==(m-1)))
+          printf("%d ",a[i][j]);
+        }
     }
 
 }
