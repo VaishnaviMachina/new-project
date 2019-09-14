@@ -7,6 +7,7 @@ struct Node
 	struct Node *next;
 };
 
+
 void display(struct Node *top)
 {
 	
@@ -19,8 +20,7 @@ void display(struct Node *top)
 }
 struct Node* push(struct Node *top)
 {
-  struct Node *tmp=NULL;
-  tmp=(struct Node*)malloc(sizeof(struct Node));
+  struct Node *tmp=(struct Node*)malloc(sizeof(struct Node));;
   printf("enter data\n");
   scanf("%d",&(tmp->data));
   tmp->next=top;
@@ -29,20 +29,23 @@ struct Node* push(struct Node *top)
   display(top);
   return top;
 }
-struct Node* pop(struct Node *top)
+struct Node*  pop(struct Node *top)
 {	
 	struct Node *tmp=NULL;
 	tmp=(struct Node*)malloc(sizeof(struct Node));
 	if (top==NULL)
+	{
+	printf("stack empty\n");
 	return NULL;
+	}
 
-	tmp=hd;
-	hd=tmp->next;
+	printf("%d",top->data);
+	tmp=top;
+	top=tmp->next;
 	free(tmp);
-	return hd;
-	display(top);
+	
 }
-void peek(struct Node *top)
+struct Node* peek(struct Node *top)
 {
 	if (top==NULL)
 	return NULL;
@@ -53,11 +56,9 @@ void peek(struct Node *top)
 }
 int main()
 {
-	struct Node *top=NULL;
-	top=(struct Node*)malloc(sizeof(struct Node));
-	top->data=1;
+	struct Node *top=(struct Node*)malloc(sizeof(struct Node));
 	top->next=NULL;
-	
+	int pos;
 	while(1)
       {
 	printf("enter operation 1>push 2>pop 3>display 4>peek 5>exit\n");
@@ -74,8 +75,7 @@ int main()
 		break;
 	 case 5:exit(0);
 		break;
-
-
-
+	}
+      }
 
 }	
